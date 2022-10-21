@@ -1,0 +1,64 @@
+{
+    "Products": [
+      {
+        "_id": "20e34559",
+        "name": "Carrito Rx-2000",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus vitae pellentesque egestas. Donec vel vestibulum magna, at porttitor.",
+        "price": 2000,
+        "imgsrc": "https://i.postimg.cc/HkFPncrx/6126913.jpg",
+        "vendor": "test-vendor",
+        "rate": 3,
+        "avgRate": 4.5
+      },
+      {
+        "_id": "1",
+        "name": "Test1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus vitae pellentesque egestas. Donec vel vestibulum magna, at porttitor.",
+        "price": 5000,
+        "imgsrc": "https://i.postimg.cc/HkFPncrx/6126913.jpg",
+        "vendor": "test-vendor",
+        "rate": 4,
+        "avgRate": 4.5
+      },
+      {
+        "_id": "2",
+        "name": "Test2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus vitae pellentesque egestas. Donec vel vestibulum magna, at porttitor.",
+        "price": 15000,
+        "imgsrc": "https://i.postimg.cc/HkFPncrx/6126913.jpg",
+        "vendor": "test-vendor",
+        "rate": 2.5,
+        "avgRate": 3
+      },
+      {
+        "_id": "3",
+        "name": "Test3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus vitae pellentesque egestas. Donec vel vestibulum magna, at porttitor.",
+        "price": 10000,
+        "imgsrc": "https://i.postimg.cc/HkFPncrx/6126913.jpg",
+        "vendor": "test-vendor",
+        "rate": 2,
+        "avgRate": 5
+      },
+      {
+        "_id": "4",
+        "name": "Test4",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus vitae pellentesque egestas. Donec vel vestibulum magna, at porttitor.",
+        "price": 13000,
+        "imgsrc": "https://i.postimg.cc/HkFPncrx/6126913.jpg",
+        "vendor": "test-vendor",
+        "rate": 5,
+        "avgRate": 4
+      },
+      {
+        "_id": "5",
+        "name": "Test5",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus egestas purus vitae pellentesque egestas. Donec vel vestibulum magna, at porttitor.",
+        "price": 100,
+        "imgsrc": "https://i.postimg.cc/HkFPncrx/6126913.jpg",
+        "vendor": "test-vendor",
+        "rate": 1,
+        "avgRate": 1
+      }
+    ]
+  }  
