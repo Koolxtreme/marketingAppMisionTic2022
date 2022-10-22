@@ -36,9 +36,35 @@ function ProductsCardForm({ data }) {
     setRate(e.target.value);
   };
 
+  const detenerEjecucion = (e) => {
+    e.preventDefault();
+  };
+
+  const edicionCompletada = async() =>{
+    const newData = JSON.stringify({
+      name,
+      description,
+      imgsrc,
+      mainsrc,
+      price,
+      rate
+    });
+    await fetch(`/API/products/${data._id}`,{
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: newData
+    }).then(res => res ? habilitarEdicion() : alert("Algo salio mal"))
+  };
+
   return (
-    <form className="flex justify-evenly bg-white rounded-md p-4">
+    <form
+      onSubmit={detenerEjecucion}
+      className="grid gap-4 bg-white rounded-md p-4"
+    >
       <div className="grid gap-2">
+        <img src={imgsrc} className="h-60 w-60 mx-auto object-scale-down" />
         <input
           type="text"
           placeholder="Nombre del articulo"
@@ -88,16 +114,20 @@ function ProductsCardForm({ data }) {
           disabled={isDisabled}
         />
       </div>
-      <div className="grid gap-4 place-content-center">
-        <a
-          className={`p-2 rounded-md ${
-            isDisabled ? "bg-yellow-300" : "bg-green-300"
-          } text-center transition cursor-pointer`}
-          onClick={habilitarEdicion}
-        >
-          {isDisabled ? "Editar" : <>&#10003;</>}
-        </a>
-        <button className="p-2 bg-red-400 rounded-md">Elminar</button>
+      <div className="flex justify-evenly place-content-center">
+        {isDisabled ? (
+          <a
+            className="h-10 w-20 rounded-md bg-yellow-300 cursor-pointer flex justify-center items-center"
+            onClick={habilitarEdicion}
+          >
+            Editar
+          </a>
+        ) : (
+          <button className="bg-green-300 h-10 w-20 rounded-md" onClick={edicionCompletada}>
+            &#10003;
+          </button>
+        )}
+        <button className="h-10 w-20 bg-red-400 rounded-md">Elminar</button>
       </div>
     </form>
   );

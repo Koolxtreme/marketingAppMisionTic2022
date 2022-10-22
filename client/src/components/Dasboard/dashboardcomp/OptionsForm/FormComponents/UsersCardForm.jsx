@@ -21,7 +21,7 @@ function UsersCardForm({data}) {
   };
 
   return (
-    <form className="flex justify-evenly rounded-md bg-white p-4">
+    <form className="grid rounded-md gap-4 bg-white p-4">
       <div className="grid gap-2">
         <input
           type="text"
@@ -48,7 +48,7 @@ function UsersCardForm({data}) {
           disabled={isDisabled}
         />
       </div>
-      <div className="grid gap-4 place-content-center">
+      <div className="flex justify-evenly place-content-center">
         <a
           className={`p-2 rounded-md ${isDisabled ? "bg-yellow-300" : "bg-green-300"} text-center transition cursor-pointer`}
           onClick={habilitarEdicion}
