@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 function Choosing() {
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4 place-content-center px-2 mb-8">
+      <div className="grid lg:w-[50vw] mx-auto grid-cols-2 gap-4 place-content-center px-2 mb-8">
         <Optioncard donde="/dashboard/users" type={true}>
           Administrar Usuarios
         </Optioncard>
