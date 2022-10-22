@@ -6,9 +6,9 @@ function UsersCardForm({data}) {
     setIsDisabled(!isDisabled);
   };
 
-  const [nombre, setNombre] = useState(data.name);
+  const [nombre, setNombre] = useState(data.username);
   const [correo, setCorreo] = useState(data.email);
-  const [contraseña, setContraseña] = useState(data.pass);
+  const [contraseña, setContraseña] = useState(data.password);
 
   const cambiandoNombre = (e) => {
     setNombre(e.target.value);

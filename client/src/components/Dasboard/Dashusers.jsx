@@ -1,24 +1,26 @@
-import OptionsList from "./dashboardcomp/OptionsList"
+import { useState, useEffect } from "react";
 
-const prueba = [
-  {
-    name: "paolo",
-    email: "pololito@gmail.pl",
-    pass : "perezosquier"
-  },
-  {
-    name: "Panquesito",
-    email: "poquesi@gmail.pl",
-    pass : "meToco"
-  }
-]
+import OptionsList from "./dashboardcomp/OptionsList";
 
 function Dashusers() {
+  const [data, setData] = useState([]);
+
+  const refrescarUsuarios = ()=>{
+    fetch("/API/users")
+    .then((res) => res.json())
+    .then((datos) => setData(datos))
+    .catch((err) => "nada");
+  }
+
+  useEffect(() => {
+    refrescarUsuarios();
+  }, []);
+
   return (
     <div>
-      <OptionsList isUser={true} data={prueba}/>      
+      <OptionsList isUser={true} data={data} />
     </div>
-  )
+  );
 }
 
-export default Dashusers
+export default Dashusers;
