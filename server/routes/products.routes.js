@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router();
 import Product from "../models/Products.js";
+import { obtenerMejores } from "../helpers/functions.js";
 
 router.get("/API/products", async (req, res) => {
   const productos = await Product.find();
@@ -9,7 +10,21 @@ router.get("/API/products", async (req, res) => {
 
 router.get("/API/products/:id", async (req, res) => {
   const producto = await Product.findById(req.params.id);
+  const pop = producto.pop + 1;
+  await Product.findByIdAndUpdate(req.params.id, { pop });
   res.json(producto);
+});
+
+router.get("/API/bestproducts", async (req, res) => {
+  const productos = await Product.find();
+  const mejores = obtenerMejores(productos, false);
+  res.json(mejores);
+});
+
+router.get("/API/mainproducts", async (req, res) => {
+  const productos = await Product.find();
+  const mejores = obtenerMejores(productos, true);
+  res.json(mejores);
 });
 
 router.post("/API/products", async (req, res) => {
@@ -21,6 +36,7 @@ router.post("/API/products", async (req, res) => {
     mainsrc,
     price,
     rate,
+    pop: 0,
   });
   await newProduct.save();
   res.json({ status: "success" });

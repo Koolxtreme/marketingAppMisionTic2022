@@ -8,6 +8,7 @@ const ProductSchema = new Schema({
   price: { type: Number, required: true },
   rate: { type: Number, required: true },
   avgRate: { type: Array, required: false },
+  pop: {type: Number, required: true}
 });
 
 export default mongoose.model("Product", ProductSchema);
