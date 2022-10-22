@@ -58,6 +58,18 @@ function ProductsCardForm({ data }) {
     }).then((res) => (res ? habilitarEdicion() : alert("Algo salio mal")));
   };
 
+  const deleteRequest = async () => {
+    const confirmacion = confirm("¿Estas seguro que quieres elimiar el articulo?");
+    if (confirmacion)
+    {
+      await fetch(`/API/products/${data._id}`, {
+        method: "DELETE"
+      }).then(res => alert("Se ha eliminado correctamente")).then(res => window.location.reload())
+    } else {
+      alert("Eliminacion cancelada")
+    }
+  };
+
   return (
     <form
       onSubmit={detenerEjecucion}
@@ -130,7 +142,7 @@ function ProductsCardForm({ data }) {
             &#10003;
           </button>
         )}
-        <button className="h-10 w-20 bg-red-400 rounded-md">Elminar</button>
+        <button onClick={deleteRequest} className="h-10 w-20 bg-red-400 rounded-md">Elminar</button>
       </div>
     </form>
   );
