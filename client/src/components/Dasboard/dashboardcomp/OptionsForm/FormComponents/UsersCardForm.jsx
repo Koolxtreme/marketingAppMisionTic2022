@@ -1,61 +1,94 @@
-import {useState} from "react"
+import { useState } from "react";
 
-function UsersCardForm({data}) {
+function UsersCardForm({ data }) {
   const [isDisabled, setIsDisabled] = useState(true);
   const habilitarEdicion = () => {
     setIsDisabled(!isDisabled);
   };
 
-  const [nombre, setNombre] = useState(data.username);
-  const [correo, setCorreo] = useState(data.email);
-  const [contraseña, setContraseña] = useState(data.password);
+  const [username, setUsername] = useState(data.username);
+  const [email, setEmail] = useState(data.email);
+  const [password, setPassword] = useState(data.password);
 
-  const cambiandoNombre = (e) => {
-    setNombre(e.target.value);
+  const cambiandoUsername = (e) => {
+    setUsername(e.target.value);
   };
-  const cambiandoCorreo = (e) => {
-    setCorreo(e.target.value);
+  const cambiandoEmail = (e) => {
+    setEmail(e.target.value);
   };
   const cambiandoContra = (e) => {
-    setContraseña(e.target.value);
+    setPassword(e.target.value);
+  };
+
+  const detenerEjecucion = (e) => {
+    e.preventDefault();
+  };
+
+  const edicionCompletada = async () => {
+    const newData = JSON.stringify({
+      username,
+      email,
+      password,
+    });
+    await fetch(`/API/users/${data._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: newData,
+    }).then((res) => (res ? habilitarEdicion() : alert("Algo salio mal")));
   };
 
   return (
-    <form className="grid rounded-md gap-4 bg-white p-4">
+    <form
+      onSubmit={detenerEjecucion}
+      className="grid rounded-md gap-4 bg-white p-4"
+    >
       <div className="grid gap-2">
         <input
           type="text"
           placeholder="Nombre de Usuario"
-          value={nombre}
-          onChange={cambiandoNombre}
+          value={username}
+          onChange={cambiandoUsername}
           className="bg-white border-2 border-robin-s-egg-blue-300"
           disabled={isDisabled}
         />
         <input
           type="email"
           placeholder="Correo Electronico"
-          value={correo}
-          onChange={cambiandoCorreo}
+          value={email}
+          onChange={cambiandoEmail}
           className="bg-white border-2 border-robin-s-egg-blue-300"
           disabled={isDisabled}
         />
         <input
           type="password"
           placeholder="Contraseña"
-          value={contraseña}
+          value={password}
           onChange={cambiandoContra}
           className="bg-white border-2 border-robin-s-egg-blue-300"
           disabled={isDisabled}
         />
       </div>
       <div className="flex justify-evenly place-content-center">
-        <a
-          className={`p-2 rounded-md ${isDisabled ? "bg-yellow-300" : "bg-green-300"} text-center transition cursor-pointer`}
-          onClick={habilitarEdicion}
-        >
-          {isDisabled ? "Editar" : <>&#10003;</>}
-        </a>
-        <button className="p-2 rounded-md bg-red-400 hover:bg-red-500 transition">Elminar</button>
+        {isDisabled ? (
+          <a
+            className="h-10 w-20 rounded-md bg-yellow-300 cursor-pointer flex justify-center items-center"
+            onClick={habilitarEdicion}
+          >
+            Editar
+          </a>
+        ) : (
+          <button
+            className="bg-green-300 h-10 w-20 rounded-md"
+            onClick={edicionCompletada}
+          >
+            &#10003;
+          </button>
+        )}
+        <button className="p-2 rounded-md bg-red-400 hover:bg-red-500 transition">
+          Elminar
+        </button>
       </div>
     </form>
   );

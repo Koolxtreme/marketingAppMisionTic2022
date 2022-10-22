@@ -40,22 +40,22 @@ function ProductsCardForm({ data }) {
     e.preventDefault();
   };
 
-  const edicionCompletada = async() =>{
+  const edicionCompletada = async () => {
     const newData = JSON.stringify({
       name,
       description,
       imgsrc,
       mainsrc,
       price,
-      rate
+      rate,
     });
-    await fetch(`/API/products/${data._id}`,{
-      method: 'PUT',
+    await fetch(`/API/products/${data._id}`, {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: newData
-    }).then(res => res ? habilitarEdicion() : alert("Algo salio mal"))
+      body: newData,
+    }).then((res) => (res ? habilitarEdicion() : alert("Algo salio mal")));
   };
 
   return (
@@ -123,7 +123,10 @@ function ProductsCardForm({ data }) {
             Editar
           </a>
         ) : (
-          <button className="bg-green-300 h-10 w-20 rounded-md" onClick={edicionCompletada}>
+          <button
+            className="bg-green-300 h-10 w-20 rounded-md"
+            onClick={edicionCompletada}
+          >
             &#10003;
           </button>
         )}
