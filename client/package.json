@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
-    "preview": "vite build --watch"
+    "preview": "vite build --watch --emptyOutDir"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
