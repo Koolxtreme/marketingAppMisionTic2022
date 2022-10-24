@@ -9,6 +9,7 @@ import PageNotFound from "./views/NotFound";
 import Dashboard from "./views/Dashboard";
 import Dashusers from "./components/Dasboard/Dashusers";
 import Dashproducts from "./components/Dasboard/Dashproducts";
+import Success from "./views/Success";
 
 function Enrutador() {
   return (
@@ -23,6 +24,7 @@ function Enrutador() {
         <Route path="users" element={<Dashusers />}></Route>
         <Route path="products" element={<Dashproducts />}></Route>
       </Route>
+      <Route path="/success" element={<Success/>}></Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
