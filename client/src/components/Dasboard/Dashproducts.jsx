@@ -6,7 +6,7 @@ function Dashproducts() {
 
   const [data, setData] = useState([]);
 
-  const refrescarUsuarios = ()=>{
+  const refrescarProductos = ()=>{
     fetch("/API/products")
     .then((res) => res.json())
     .then((datos) => setData(datos))
@@ -14,7 +14,7 @@ function Dashproducts() {
   }
 
   useEffect(() => {
-    refrescarUsuarios();
+    refrescarProductos();
   }, []);
 
   return (

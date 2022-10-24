@@ -20,7 +20,7 @@ function ProductsGallery() {
           rate={producto.rate}
           avgRate={producto.avgRate}
           description={producto.description}
-          id={producto.id}
+          id={producto._id}
           key={index}
         />
       ))}
