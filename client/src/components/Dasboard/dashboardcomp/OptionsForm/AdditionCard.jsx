@@ -35,6 +35,13 @@ function AdditionCard({ isUser }) {
     e.preventDefault();
   };
 
+  const isFilled = () =>
+  {
+    if(name.length > 0 && description.length > 0 && imgsrc.length > 0 && mainsrc.length > 0 && price > 0 && rate > 0) return true
+    else return false 
+  }
+
+  
   const agregarNuevo = async () => {
     const newData = JSON.stringify({
       name,
@@ -52,8 +59,13 @@ function AdditionCard({ isUser }) {
       body: newData,
     }).then((res) => window.location.reload());
   };
+  
+  const validarVacios = () => {
+    if (isFilled()) agregarNuevo();
+    else alert("Debe llenar todos los campos")
+  }
 
-  if (!isUser) {
+    if (!isUser) {
     return (
       <form
         onSubmit={detenerEjecucion}
@@ -106,7 +118,7 @@ function AdditionCard({ isUser }) {
         </div>
         <div className="flex place-content-center">
           <button
-            onClick={agregarNuevo}
+            onClick={validarVacios}
             className="h-10 w-20 bg-green-400 rounded-md"
           >
             Agregar

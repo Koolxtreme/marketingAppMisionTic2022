@@ -20,7 +20,7 @@ function Enrutador() {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/register" element={<Registration />}></Route>
       <Route path="/forgot" element={<Forgot />}></Route>
-      <Route path="/dashboard" element={<Dashboard />}>
+      <Route path="/secretdashboard" element={<Dashboard />}>
         <Route path="users" element={<Dashusers />}></Route>
         <Route path="products" element={<Dashproducts />}></Route>
       </Route>

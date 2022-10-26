@@ -5,10 +5,10 @@ function Choosing() {
   return (
     <div>
       <div className="grid lg:w-[50vw] mx-auto grid-cols-2 gap-4 place-content-center px-2 mb-8">
-        <Optioncard donde="/dashboard/users" type={true}>
+        <Optioncard donde="users" type={true}>
           Administrar Usuarios
         </Optioncard>
-        <Optioncard donde="/dashboard/products">
+        <Optioncard donde="products">
           Administrar Productos
         </Optioncard>
       </div>

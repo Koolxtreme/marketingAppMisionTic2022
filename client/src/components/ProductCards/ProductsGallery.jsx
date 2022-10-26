@@ -5,7 +5,7 @@ function ProductsGallery() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("/API/bestproducts")
+    fetch("/API/products")
       .then((res) => res.json())
       .then((datos) => setData(datos));
   }, []);
