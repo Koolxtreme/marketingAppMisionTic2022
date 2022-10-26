@@ -66,11 +66,11 @@ function SmallNav() {
           </li>
           <li>
             <Link
-              to="/about"
+              to="/bestProducts"
               className="hover:bg-orange-300 rounded-md py-1.5 px-2"
               onClick={()=> setNavbar(false)}
             >
-              Sobre Nosotros
+              Top 20
             </Link>
           </li>
           <li>

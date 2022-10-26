@@ -1,14 +1,7 @@
-import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
-function ProductsGallery() {
-  const [data, setData] = useState([]);
+function ProductsGallery({data}) {
 
-  useEffect(() => {
-    fetch("/API/products")
-      .then((res) => res.json())
-      .then((datos) => setData(datos));
-  }, []);
 
   return (
     <div className="w-full p-4 mx-auto grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">

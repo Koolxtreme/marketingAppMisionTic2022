@@ -10,12 +10,14 @@ import Dashboard from "./views/Dashboard";
 import Dashusers from "./components/Dasboard/Dashusers";
 import Dashproducts from "./components/Dasboard/Dashproducts";
 import Success from "./views/Success";
+import TopProducts from "./views/TopProducts";
 
 function Enrutador() {
   return (
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/products" element={<Products />}></Route>
+      <Route path="/bestProducts" element={<TopProducts/>}></Route>
       <Route path="/about" element={<About />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/register" element={<Registration />}></Route>

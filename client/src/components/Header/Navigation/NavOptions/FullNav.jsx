@@ -19,10 +19,10 @@ function FullNav() {
         </li>
         <li>
           <Link
-            to="/about"
+            to="/bestProducts"
             className="hover:text-robin-s-egg-blue-600 transition"
           >
-            Sobre Nosotros
+            Top 20
           </Link>
         </li>
         <li className="grid grid-flow-col gap-2">
