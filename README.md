@@ -1,4 +1,4 @@
-# Welcome to my responses!
+# Bienvenidos a mi proyecto!
 
 >### Repositorio creado para presentar la actividad SCRUM para el ciclo 4 del programa MISIONTIC2022 en la Universidad Tecnológica de Pereira.
 
