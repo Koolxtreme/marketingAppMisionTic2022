@@ -27,10 +27,9 @@ function Register() {
         .then((res) => alert("Usuario Registrado Exitosamente"))
         .then(() => window.location.assign("success"))
         .catch((err) => "nada");
-    }else{
+    } else {
       alert("Las contraseñas no coinciden");
     }
-  
   };
 
   return (
@@ -45,10 +44,7 @@ function Register() {
         <TextField holder="Contraseña" pass={true} />
         <TextField holder="Confirmar Contraseña" pass={true} />
         <div className="mx-auto">
-          <Button
-            description="Registrarse"
-            accion={() => console.log("holi")}
-          />
+          <Button description="Registrarse" />
         </div>
       </form>
       <div className="text-xs grid gap-2">
