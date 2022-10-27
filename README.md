@@ -8,7 +8,6 @@ Participantes:
 ---
 Descripción del proyecto: 
 `Simulación de una página web orientada al marketing de afiliados, con las siguientes características.`
- - [x] 0- Es una SAP(Single Page Application) con diversas vistas.
  - [x] 1- Capacidad para mostrar diversos contenidos.
  - [x] 2- Capacidad de cambiar durante la ejecución.
  - [x] 3- Diseño adaptativo a distintas pantallas.
@@ -16,3 +15,11 @@ Descripción del proyecto:
  - [x] 5- Dos CRUD integrados, uno para productos y otro para usuarios.
  - [ ] 6- Creado un contexto de sesión para manejar el perfil del usuario
  - [x] 7- App diseñada para ser desplegada en Heroku
+
+---
+## Tecnologías usadas
+- HTML	|	JSX
+- CSS		|	TailwindCSS
+- ReactJs	|	Javascript vanilla
+- NodeJs	|	Express
+- MongoDB	|	Mongoose
