@@ -8,8 +8,20 @@ router.get("/API/users", async (req, res) => {
 });
 
 router.get("/API/users/:id", async (req, res) => {
-    const usuario = await User.findById(req.params.id);
-    res.json(usuario);
+  const usuario = await User.findById(req.params.id);
+  res.json(usuario);
+});
+
+router.post("/API/users/login", async (req, res) => {
+  const logeante = req.body;
+  const usuario = await User.findOne({ username: logeante.username }, {});
+  const resultado = logeante.password === usuario.password;
+  if (resultado)
+    res.json({
+      resultado,
+      id: usuario._id,
+    });
+  else res.json({ resultado, id: null });
 });
 
 router.post("/API/users", async (req, res) => {
