@@ -81,11 +81,10 @@ function ThemeToggle() {
   }, []);
 
   return (
-    <div className="flex items-center justify-end mb-4 px-4">
+    <div className="flex items-center justify-end mb-4">
       <FormControlLabel
         control={
           <MaterialUISwitch
-            sx={{ m: 1 }}
             onClick={toggleDarkmode}
             checked={isDark}
           />

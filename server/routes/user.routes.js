@@ -37,6 +37,9 @@ router.post("/API/users", async (req, res) => {
   });
   await newUser.save();
   res.json({ status: "success" });
+  //res.status(400).send({
+//    message: "ths is an error"
+//  })
 });
 
 router.put("/API/users/:id", async (req, res) => {

@@ -4,7 +4,7 @@ function ProductsGallery({data}) {
 
 
   return (
-    <div className="w-full p-4 mx-auto grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
+    <div className="w-full p-4 mx-auto grid place-content-center md:grid-cols-5 gap-4 mb-4">
       {data.map((producto, index) => (
         <ProductCard
           imgsrc={producto.imgsrc}

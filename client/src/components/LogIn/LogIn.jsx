@@ -5,34 +5,32 @@ import FormTittle from "./FormComponents/FormTittle";
 import FormLink from "./FormComponents/FormLink";
 
 function LogIn() {
-
   const collectData = async (e) => {
+    const respuesta = document.getElementById("respuesta_login");
+    respuesta.innerHTML = "";
     e.preventDefault();
     const username = e.target[0].value;
     const password = e.target[1].value;
     const cuerpo = JSON.stringify({
       username,
-      password
+      password,
     });
-    console.log(cuerpo);
 
     await fetch("/API/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: cuerpo
-    }).then(res => res.json())
-    .then(res => {
-      if(res.resultado)
-      {
-        console.log("Logueado con exito")
-      }
-      else
-      {
-        console.log("Fallo de autenticación")
-      }
+      body: cuerpo,
     })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.resultado) {
+          console.log("Logueado con exito");
+        } else {
+          respuesta.innerHTML = "Usuario o contraseña incorrectas";
+        }
+      });
   };
   return (
     <FormContainer>
@@ -43,6 +41,10 @@ function LogIn() {
       >
         <TextField holder="Nombre de usuario" pass={false} />
         <TextField holder="Contraseña" pass={true} />
+        <div
+          id="respuesta_login"
+          className="font-thin text-red-500 dark:text-robin-s-egg-blue-300 text-xs text-center"
+        ></div>
         <div className="mx-auto">
           <Button description="Iniciar Sesión" />
         </div>
