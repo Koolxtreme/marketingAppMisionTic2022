@@ -8,6 +8,7 @@ Participantes:
 ---
 Descripción del proyecto: 
 `Simulación de una página web orientada al marketing de afiliados, con las siguientes características.`
+ - [x] 0- Es una SAP(Single Page Application) con diversas vistas.
  - [x] 1- Capacidad para mostrar diversos contenidos.
  - [x] 2- Capacidad de cambiar durante la ejecución.
  - [x] 3- Diseño adaptativo a distintas pantallas.
