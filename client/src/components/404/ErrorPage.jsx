@@ -18,7 +18,7 @@ function ErrorPage() {
             <h2 className="text-gray-500 text-center text-2xl">
               Pagina No Encontrada
             </h2>
-            <button className="bg-gray-500 border-gray-700 border-4 p-1 rounded-md" onClick={() => navigate(-1)}>Regresar</button>
+            <button className="bg-gray-500 border-gray-700 border-4 p-1 rounded-md" onClick={() => navigate("/")}>Regresar</button>
           </div>
           <div className="absolute left-0 -bottom-2 bg-green-600 w-full h-4"></div>
         </div>

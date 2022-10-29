@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
+import {ImArrowLeft} from 'react-icons/im';
 
 function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -81,7 +82,8 @@ function ThemeToggle() {
   }, []);
 
   return (
-    <div className="flex items-center justify-end mb-4">
+    <div className="flex items-center justify-between px-4 mb-4">
+      <a className="p-2 rounded-full bg-medium-purple-200 dark:bg-pomegranate-700 text-white hover:bg-medium-purple-300 dark:hover:bg-pomegranate-600 hover:scale-110" href="javascript:history.go(-1)"> <ImArrowLeft /> </a>
       <FormControlLabel
         control={
           <MaterialUISwitch

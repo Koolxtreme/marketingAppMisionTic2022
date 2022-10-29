@@ -9,10 +9,14 @@ router.get("/API/products", async (req, res) => {
 });
 
 router.get("/API/products/:id", async (req, res) => {
-  const producto = await Product.findById(req.params.id);
-  const pop = producto.pop + 1;
-  await Product.findByIdAndUpdate(req.params.id, { pop });
-  res.json(producto);
+  try{
+    const producto = await Product.findById(req.params.id);
+    const pop = producto.pop + 1;
+    await Product.findByIdAndUpdate(req.params.id, { pop });
+    res.json(producto);
+  }catch(err){
+    res.status(404).send(new Error())
+  }
 });
 
 router.get("/API/bestproducts", async (req, res) => {
