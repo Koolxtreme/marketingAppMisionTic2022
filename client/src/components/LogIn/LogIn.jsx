@@ -3,8 +3,12 @@ import Button from "./FormComponents/Button";
 import FormContainer from "./FormComponents/FormContainer";
 import FormTittle from "./FormComponents/FormTittle";
 import FormLink from "./FormComponents/FormLink";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 function LogIn() {
+  const { obtainProfile } = useContext(UserContext);
+
   const collectData = async (e) => {
     const respuesta = document.getElementById("respuesta_login");
     respuesta.innerHTML = "";
@@ -26,7 +30,7 @@ function LogIn() {
       .then((res) => res.json())
       .then((res) => {
         if (res.resultado) {
-          console.log("Logueado con exito");
+          obtainProfile(res.id);
         } else {
           respuesta.innerHTML = "Usuario o contraseña incorrectas";
         }

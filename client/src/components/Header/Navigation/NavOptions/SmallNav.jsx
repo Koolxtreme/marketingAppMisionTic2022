@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../../../../context/UserContext";
 
 function SmallNav() {
   const [navbar, setNavbar] = useState(false);
+  const { profile } = useContext(UserContext);
+
   return (
     <div>
       <div>
@@ -51,7 +54,8 @@ function SmallNav() {
             <Link
               to="/"
               className=" hover:bg-orange-300 rounded-md py-1.5 px-2"
-              onClick={()=> setNavbar(false)}>
+              onClick={() => setNavbar(false)}
+            >
               Inicio
             </Link>
           </li>
@@ -59,7 +63,7 @@ function SmallNav() {
             <Link
               to="/products"
               className=" hover:bg-orange-300 rounded-md py-1.5 px-2"
-              onClick={()=> setNavbar(false)}
+              onClick={() => setNavbar(false)}
             >
               Productos
             </Link>
@@ -68,29 +72,52 @@ function SmallNav() {
             <Link
               to="/bestProducts"
               className="hover:bg-orange-300 rounded-md py-1.5 px-2"
-              onClick={()=> setNavbar(false)}
+              onClick={() => setNavbar(false)}
             >
               Top 20
             </Link>
           </li>
-          <li>
-            <Link
-              to="/login"
-              className="hover:bg-orange-300 rounded-md py-1.5 px-2"
-              onClick={()=> setNavbar(false)}
-            >
-              Iniciar
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/register"
-              className="hover:bg-orange-300 rounded-md py-1.5 px-2"
-              onClick={()=> setNavbar(false)}
-            >
-              Registrarse
-            </Link>
-          </li>
+          {!profile.logged ? (
+            <li>
+              <Link
+                to="/login"
+                className="hover:bg-orange-300 rounded-md py-1.5 px-2"
+                onClick={() => setNavbar(false)}
+              >
+                Iniciar
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <Link
+                to="/profile"
+                className="hover:bg-orange-300 rounded-md py-1.5 px-2"
+                onClick={() => setNavbar(false)}
+              >
+                {profile.username}
+              </Link>
+            </li>
+          )}
+          {!profile.logged ? (
+            <li>
+              <Link
+                to="/register"
+                className="hover:bg-orange-300 rounded-md py-1.5 px-2"
+                onClick={() => setNavbar(false)}
+              >
+                Registrarse
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <p
+                className="hover:bg-orange-300 rounded-md py-1.5 px-2"
+                onClick={() => setNavbar(false)}
+              >
+                Cerrar sesión
+              </p>
+            </li>
+          )}
         </ul>
       </nav>
     </div>
