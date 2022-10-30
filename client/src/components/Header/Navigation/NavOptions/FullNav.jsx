@@ -54,9 +54,9 @@ function FullNav() {
               {`${profile.username}`}
             </Link>
             |
-            <p className="hover:text-robin-s-egg-blue-600 transition cursor-pointer">
+            <a className="hover:text-robin-s-egg-blue-600 transition cursor-pointer" onClick={()=>{localStorage.removeItem("contexto"); location.reload()}}>
               Cerrar Sesión
-            </p>
+            </a>
           </li>
         )}
       </ul>

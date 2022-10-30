@@ -110,12 +110,10 @@ function SmallNav() {
             </li>
           ) : (
             <li>
-              <p
-                className="hover:bg-orange-300 rounded-md py-1.5 px-2"
-                onClick={() => setNavbar(false)}
+              <a className="hover:text-robin-s-egg-blue-600 transition cursor-pointer" onClick={()=>{localStorage.removeItem("contexto"); location.reload()}}
               >
                 Cerrar sesión
-              </p>
+              </a>
             </li>
           )}
         </ul>

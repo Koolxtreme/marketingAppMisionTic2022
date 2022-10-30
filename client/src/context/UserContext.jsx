@@ -1,9 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
 export function UserContextProvider({ children }) {
-  const [profile, setProfile] = useState({ logged: false });
+  const [profile, setProfile] = useState({});
   const [newName, setNewName] = useState("");
   const [newProfile, setNewProfile] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -11,8 +11,26 @@ export function UserContextProvider({ children }) {
   const obtainProfile = async (id) => {
     await fetch(`/API/users/${id}`)
       .then((res) => res.json())
-      .then((response) => setProfile({ ...response, logged: true }))
+      .then((response) => {
+        const perfil = { ...response, logged: true };
+        setProfile(perfil);
+        localStorage.setItem("contexto", JSON.stringify({id, logged: true}));
+      })
       .catch((err) => "nada");
+  };
+
+  const lookForLocal = () => {
+    if (localStorage.getItem("contexto")) {
+      const local = JSON.parse(localStorage.getItem("contexto"));
+      if (local.logged) {
+        obtainProfile(local.id);
+      } else {
+        setProfile({ logged: false });
+      }
+    } else {
+      setProfile({ logged: false });
+      localStorage.setItem("contexto", JSON.stringify({ logged: false }));
+    }
   };
 
   const updateProfile = async () => {
@@ -29,6 +47,11 @@ export function UserContextProvider({ children }) {
       body: newData,
     });
   };
+
+  useEffect(() => {
+    lookForLocal();
+  }, []);
+
   return (
     <UserContext.Provider
       value={{

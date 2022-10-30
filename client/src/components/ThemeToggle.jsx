@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
-import {ImArrowLeft} from 'react-icons/im';
+import { ImArrowLeft } from "react-icons/im";
 
 function ThemeToggle() {
   const [isDark, setIsDark] = useState(false);
@@ -54,7 +54,6 @@ function ThemeToggle() {
     },
   }));
 
-
   const toggleDarkmode = () => {
     setIsDark(!isDark);
     // if set via local storage previously
@@ -77,20 +76,22 @@ function ThemeToggle() {
         resolve(false);
       }
     });
-    validacionInicial.then((res) =>
-      setIsDark(res)).then(() => toggleDarkmode());
+    validacionInicial
+      .then((res) => setIsDark(res))
+      .then(() => toggleDarkmode());
   }, []);
 
   return (
     <div className="flex items-center justify-between px-4 mb-4">
-      <a className="p-2 rounded-full bg-medium-purple-200 dark:bg-pomegranate-700 text-white hover:bg-medium-purple-300 dark:hover:bg-pomegranate-600 hover:scale-110" href="javascript:history.go(-1)"> <ImArrowLeft /> </a>
+      <a
+        className="p-2 rounded-full bg-medium-purple-200 dark:bg-pomegranate-700 text-white hover:bg-medium-purple-300 dark:hover:bg-pomegranate-600 hover:scale-110"
+        href="javascript:history.go(-1)"
+      >
+        {" "}
+        <ImArrowLeft />{" "}
+      </a>
       <FormControlLabel
-        control={
-          <MaterialUISwitch
-            onClick={toggleDarkmode}
-            checked={isDark}
-          />
-        }
+        control={<MaterialUISwitch onClick={toggleDarkmode} checked={isDark} />}
       />
     </div>
   );
