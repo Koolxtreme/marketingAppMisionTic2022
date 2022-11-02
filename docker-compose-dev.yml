@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  applicacion:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - monguito
+    volumes:
+      - .:/usr/src/app
+  monguito:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      # mysql -> /var/lib/mysql
+      # postgresql -> /var/lib/postgresql/data
+volumes:
+  mongo-data:

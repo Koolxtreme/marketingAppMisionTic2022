@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const URI = "mongodb://localhost/crud-marketing-app";
+const URI = "mongodb://monguito/crud-marketing-app";
 
 mongoose
   .connect(URI)
