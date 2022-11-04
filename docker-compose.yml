@@ -1,10 +1,16 @@
 version: "3.9"
 services:
-  applicacion:
-    build: .
+  web:
+    build:
+      context: .
+    container_name: web-app
+    environment:
+      - MONGO_URL="mongodb://monguito:27017/marketingCrudApp"
     ports:
       - "3000:3000"
     links:
+      - monguito
+    depends_on:
       - monguito
   monguito:
     image: mongo

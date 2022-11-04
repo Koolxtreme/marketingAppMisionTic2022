@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-const URI = "mongodb://monguito/crud-marketing-app";
+const URI = process.env.MONGO_URL || "mongodb://localhost:27017/crud-marketing-app";
 
 mongoose
   .connect(URI)
