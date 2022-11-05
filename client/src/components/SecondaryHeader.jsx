@@ -82,7 +82,7 @@ function ThemeToggle() {
   }, []);
 
   return (
-    <div className="flex items-center justify-between px-4 mb-4">
+    <section className="flex items-center justify-between px-4 mb-4">
       <a
         className="p-2 rounded-full bg-medium-purple-200 dark:bg-pomegranate-700 text-white hover:bg-medium-purple-300 dark:hover:bg-pomegranate-600 hover:scale-110"
         href="javascript:history.go(-1)"
@@ -93,7 +93,7 @@ function ThemeToggle() {
       <FormControlLabel
         control={<MaterialUISwitch onClick={toggleDarkmode} checked={isDark} />}
       />
-    </div>
+    </section>
   );
 }
 

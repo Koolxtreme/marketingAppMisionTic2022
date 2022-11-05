@@ -2,9 +2,9 @@ import Choosing from "../components/Dasboard/Choosing"
 
 function Dashboard() {
   return (
-    <div className="flex justify-center">
+    <section className="flex justify-center">
         <Choosing />
-    </div>
+    </section>
   )
 }
 

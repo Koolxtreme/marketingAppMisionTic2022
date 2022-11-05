@@ -40,14 +40,17 @@ function UsersCardForm({ data }) {
   };
 
   const deleteRequest = async () => {
-    const confirmacion = confirm("Estas seguro que quieres elimiar el usuario?");
-    if (confirmacion)
-    {
+    const confirmacion = confirm(
+      "Estas seguro que quieres elimiar el usuario?"
+    );
+    if (confirmacion) {
       await fetch(`/API/users/${data._id}`, {
-        method: "DELETE"
-      }).then(res => alert("Se ha eliminado el usuario")).then(res => window.location.reload())
+        method: "DELETE",
+      })
+        .then((res) => alert("Se ha eliminado el usuario"))
+        .then((res) => window.location.reload());
     } else {
-      alert("Eliminacion cancelada")
+      alert("Eliminacion cancelada");
     }
   };
 
@@ -98,7 +101,10 @@ function UsersCardForm({ data }) {
             &#10003;
           </button>
         )}
-        <button onClick={deleteRequest} className="p-2 rounded-md bg-red-400 hover:bg-red-500 transition">
+        <button
+          onClick={deleteRequest}
+          className="p-2 rounded-md bg-red-400 hover:bg-red-500 transition"
+        >
           Elminar
         </button>
       </div>

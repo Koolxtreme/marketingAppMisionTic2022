@@ -2,9 +2,9 @@ import ErrorPage from "../components/404/ErrorPage"
 
 function NotFound() {
   return (
-    <div>
+    <section>
         <ErrorPage />
-    </div>
+    </section>
   )
 }
 

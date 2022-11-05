@@ -34,7 +34,7 @@ function LogIn() {
         } else {
           respuesta.innerHTML = "Usuario o contraseña incorrectas";
         }
-      });
+      }).then(res =>  window.location.assign("success"));
   };
   return (
     <FormContainer>

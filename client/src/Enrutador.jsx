@@ -12,6 +12,7 @@ import Dashproducts from "./components/Dasboard/Dashproducts";
 import Success from "./views/Success";
 import TopProducts from "./views/TopProducts";
 import ProductDetail from "./views/ProductDetail";
+import Profile from "./views/Profile";
 
 function Enrutador() {
   return (
@@ -24,6 +25,7 @@ function Enrutador() {
       <Route path="/login" element={<Login />}></Route>
       <Route path="/register" element={<Registration />}></Route>
       <Route path="/forgot" element={<Forgot />}></Route>
+      <Route path="/profile" element={<Profile />}></Route>
       <Route path="/secretdashboard" element={<Dashboard />}>
         <Route path="users" element={<Dashusers />}></Route>
         <Route path="products" element={<Dashproducts />}></Route>
