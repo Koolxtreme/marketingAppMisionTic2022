@@ -23,7 +23,7 @@ Link de Trello
  - [x] 3- Diseño adaptativo a distintas pantallas.
  - [x] 4- Diseño de modos claro y oscuro.
  - [x] 5- Dos CRUD integrados, uno para productos y otro para usuarios.
- - [ ] 6- Creado un contexto de sesión para manejar el perfil del usuario
+ - [x] 6- Creado un contexto de sesión para manejar el perfil del usuario
  - [x] 7- App diseñada para ser desplegada en Heroku
 
 ---
