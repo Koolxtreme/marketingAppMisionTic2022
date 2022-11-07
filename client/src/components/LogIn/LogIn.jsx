@@ -31,10 +31,11 @@ function LogIn() {
       .then((res) => {
         if (res.resultado) {
           obtainProfile(res.id);
+          window.location.assign("success")
         } else {
           respuesta.innerHTML = "Usuario o contraseña incorrectas";
         }
-      }).then(res =>  window.location.assign("success"));
+      });
   };
   return (
     <FormContainer>
