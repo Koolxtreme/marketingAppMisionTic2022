@@ -7,6 +7,11 @@
 ``
 ---
 ## Enlaces relacionados
+
+Link a la aplicación
+
+[https://marketingappmisiontic2022-production.up.railway.app/](https://marketingappmisiontic2022-production.up.railway.app/)
+
 Link de WireFrame
 
 [https://www.figma.com/file/C2L1LftG1yNcZrfCGOEAlS/Untitled?node-id=0%3A1](https://www.figma.com/file/C2L1LftG1yNcZrfCGOEAlS/Untitled?node-id=0%3A1)
